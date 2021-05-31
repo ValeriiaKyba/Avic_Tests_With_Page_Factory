@@ -20,6 +20,9 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//a[@class='sidebar-item' and contains(@href, 'gotovyie-pk')]")
     private WebElement systemUnitsButtonOnSidebar;
 
+    @FindBy(xpath = "//div[contains(@class, 'header-bottom__right')]//a[contains(@href, 'sign-in')]")
+    private WebElement loginIcon;
+
     public void clickOnIphone12ProMaxButton() {
         iphone12ProMaxButton.click();
     }
@@ -31,5 +34,9 @@ public class HomePage extends BasePage{
 
     public void clickOnSystemUnitsTab() {
         systemUnitsButtonOnSidebar.click();
+    }
+
+    public void clickOnLoginIcon() {
+        loginIcon.click();
     }
 }
