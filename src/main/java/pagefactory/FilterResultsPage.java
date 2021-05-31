@@ -7,14 +7,17 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FilterPage extends BasePage{
+public class FilterResultsPage extends BasePage{
 
-    public FilterPage(WebDriver driver) {
+    public FilterResultsPage(WebDriver driver) {
         super(driver);
     }
 
     @FindBy(xpath = "//div[@class='prod-cart__prise-new']")
     private List<WebElement> pricesOfFilteredIPhones;
+
+    @FindBy(xpath = "//div[@class='prod-cart__descr']")
+    private List<WebElement> filteredListOfSystemUnits;
 
     public ArrayList<Integer> convertPricesIntoIntegerAndAddToIntegerArray() {
         ArrayList<Integer> prices = new ArrayList<>();
@@ -23,4 +26,9 @@ public class FilterPage extends BasePage{
         }
         return prices;
     }
+
+    public List<WebElement> getFilterResults() {
+        return filteredListOfSystemUnits;
+    }
+
 }

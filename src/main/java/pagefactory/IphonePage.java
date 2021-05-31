@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static org.openqa.selenium.By.id;
 import static org.openqa.selenium.By.xpath;
 
 public class IphonePage extends BasePage{
@@ -33,6 +32,6 @@ public class IphonePage extends BasePage{
     }
 
     public void clickOnShowIPhonesButton() {
-       showIPhonesButton.click();
+        showIPhonesButton.click();
     }
 }

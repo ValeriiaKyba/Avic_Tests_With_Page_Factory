@@ -1,5 +1,6 @@
 package pagefactory.tests;
 
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -17,9 +18,19 @@ public class FilterTests extends BaseTest{
         getIphonePage().filterIphoneByPrice(PRICE_FOR_FILTERING);
         getIphonePage().waitForVisibilityOfElement(TIME_TO_WAIT, getIphonePage().getShowIPhonesButton());
         getIphonePage().clickOnShowIPhonesButton();
-        ArrayList<Integer> integerPrices = getFilterPage().convertPricesIntoIntegerAndAddToIntegerArray();
+        ArrayList<Integer> integerPrices = getFilterResultsPage().convertPricesIntoIntegerAndAddToIntegerArray();
         for (Integer price: integerPrices) {
             assertTrue(price < Integer.parseInt(PRICE_FOR_FILTERING));
+        }
+    }
+
+    @Test
+    public void checkThatFilterResultsContainsFilterWord() {
+        getHomePage().hoverOnComputersOnSidebar();
+        getHomePage().clickOnSystemUnitsTab();
+        getSystemUnitsPage().clickOnDellCheckbox();
+        for (WebElement systemUnit : getFilterResultsPage().getFilterResults()) {
+            assertTrue(systemUnit.getText().contains("Dell"));
         }
     }
 }
